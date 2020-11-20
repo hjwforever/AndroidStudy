@@ -19,7 +19,7 @@ class MyIntentService : IntentService("MyIntentService") {
     }
 
     override fun onHandleIntent(p0: Intent?) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onDestroy() {
