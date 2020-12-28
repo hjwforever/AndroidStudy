@@ -15,8 +15,8 @@ class SecondActivity : AppCompatActivity() {
         /**Load，使用SharedPreferences进行读取*/
         button.setOnClickListener {
             val sharedPreferences = getSharedPreferences("userInfo",0)
-            val username = sharedPreferences.getString("username","default")
-            val password = sharedPreferences.getString("password","123456")
+            val username = sharedPreferences.getString("username","黄俊雯")
+            val password = sharedPreferences.getString("password","18301127")
             textView.text = username
             textView2.text = password
             Log.d(tag,"读取username:${username} 和password: $password")

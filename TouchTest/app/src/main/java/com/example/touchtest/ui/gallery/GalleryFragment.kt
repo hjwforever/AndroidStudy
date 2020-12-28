@@ -22,14 +22,28 @@ class GalleryFragment : Fragment() {
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         galleryViewModel =
-                ViewModelProvider(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
+            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+
+        val textView: TextView = _binding!!.textGallery
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        return root
+        return binding.root
+//        galleryViewModel =
+//                ViewModelProvider(this).get(GalleryViewModel::class.java)
+//        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+//        val textView: TextView = root.findViewById(R.id.text_gallery)
+//        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
+//        return root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
